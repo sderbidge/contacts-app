@@ -9,7 +9,7 @@
       <input v-model="category" placeholder="Category" />
       <button @click="addContact">Add Contact</button>
     </p>
-    <div class="contact" v-for="(contact, n) in contacts" :key="n">
+    <div class="contact" v-for="(contact, n) in contacts" :key="contact.id">
       <div v-if="editing === contact.id">
         <input class="editing-input" type="text" v-model="contact.name" />
       </div>
@@ -99,6 +99,7 @@ export default {
         phone: this.phone,
         email: this.email,
         category: this.category,
+        id: this.id,
       };
     },
     removeContact(x) {
